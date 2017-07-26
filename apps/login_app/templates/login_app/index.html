@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{%if messages%}
+		{%for message in messages%}
+			<p>{{message}}</p>
+		{%endfor%}
+	{%endif%}
+	<p>Register here.</p>
+	<form action='/register' method='post'>
+		{%csrf_token%}
+		<input type="text" name="f_name" placeholder="Enter your first name here." size=30><br>
+		<input type="text" name="l_name" placeholder="Enter your last name here." size=30><br>
+		<input type="text" name="email" placeholder="Enter your email here." size=30><br>
+		<input type="text" name="password" placeholder="Enter your password here." size=30><br>
+		<input type="text" name="c_password" placeholder="Confirm password." size=30><br>
+		<input type='submit' value='Click here to register.'>
+	</form>
+
+	<p>Login here.</p>
+	<form action='/login' method='post'>
+		{%csrf_token%}
+		<input type="text" name="email" placeholder="Enter your email here." size=30><br>
+		<input type="text" name="password" placeholder="Enter your password here." size=30><br>
+		<input type='submit' value='Click here to login.'>
+	</form>
+
+</body>
+</html>

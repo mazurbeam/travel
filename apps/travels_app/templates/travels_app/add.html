@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Plan</title>
+  </head>
+  <body>
+    <header>
+      <a href="/travels">Home</a>
+      <a href="/logout">Logout</a>
+    </header>
+    <h1>Add a trip</h1>
+    {%if messages%}
+  		{%for message in messages%}
+  			<p>{{message}}</p>
+  		{%endfor%}
+  	{%endif%}
+    <form  action="addTrip" method="post">
+      {%csrf_token%}
+      <input type="hidden" name="planned_by" value="{{request.session.user_id}}">
+      <input type="text" name="destination" placeholder="Enter destination"><br>
+      <input type="text" name="description" placeholder="Enter description"><br>
+      <label for="start_date">Start Date:</label>
+      <input type="date" name="start_date" placeholder="Enter Start Date"><br>
+      <label for="end_date">End Date:</label>
+      <input type="date" name="end_date" placeholder="Enter End Date"><br>
+      <input type="submit" value="Add">
+    </form>
+  </body>
+</html>
